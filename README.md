@@ -1,201 +1,180 @@
 # ResearchRAG
 
-A complete end-to-end production-ready application for research paper analysis using RAG (Retrieval-Augmented Generation).
+<div align="center">
+  <img src="https://img.shields.io/badge/AI-Powered-blue?style=for-the-badge" alt="AI Powered">
+  <img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react" alt="React">
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi" alt="FastAPI">
+  <img src="https://img.shields.io/badge/RAG-Technology-FF6B6B?style=for-the-badge" alt="RAG">
+</div>
+
+<p align="center">
+  <strong>AI-powered research paper analysis tool using advanced RAG technology</strong>
+</p>
+
+<p align="center">
+  Upload PDFs or provide URLs to get instant summaries, pros/cons analysis, and interactive chat with your research papers using cutting-edge AI.
+</p>
 
 ## 🚀 Features
 
-- **📄 Paper Upload**: Upload PDF files or provide URLs (arXiv, direct PDF links)
-- **🤖 AI Analysis**: Generate comprehensive summaries, pros/cons, and future work suggestions
-- **💬 Interactive Chat**: Ask questions about papers using RAG technology
-- **📊 Export Options**: Export summaries as PDF or Markdown
-- **🐳 Docker Ready**: Production-ready containerized deployment
-- **🆓 Free AI Models**: Uses only free OpenRouter models
+- **📄 Multiple Input Methods**: Upload PDF files directly or provide arXiv URLs
+- **🤖 AI-Powered Analysis**: Comprehensive summaries with strengths/weaknesses breakdown
+- **💬 Interactive Chat**: Ask questions and get detailed responses about paper content
+- **📊 Export Options**: Download results as PDF or Markdown
+- **⚡ Fast Processing**: Efficient document processing with FAISS vector storage
+- **🆓 Free AI Models**: Uses only free OpenRouter models for cost-effective analysis
+
+## 📸 Application Screenshots
+
+### 🏠 Home Page - Clean Interface
+The main landing page offers multiple ways to upload research papers with an intuitive, modern design.
+
+![Home Page](./screenshots/home-page.png)
+
+### 🔗 URL Input - arXiv Integration
+Seamlessly input arXiv URLs for automatic paper retrieval and processing.
+
+![URL Input Interface](./screenshots/url-input.png)
+
+### 🧠 AI Analysis - Comprehensive Insights
+Get detailed analysis including summaries, strengths, weaknesses, and future research directions.
+
+![AI Analysis Results](./screenshots/analysis-results.png)
+
+### 💬 Interactive Chat - Deep Conversations
+Chat with your research papers to explore concepts, ask questions, and gain deeper insights.
+
+![Chat Interface](./screenshots/chat-interface.png)
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 14 + TypeScript + Tailwind CSS
-- **Backend**: FastAPI + Python 3.11
-- **AI**: OpenRouter API (`openai/gpt-oss-20b:free`)
-- **Vector DB**: FAISS (free, local)
-- **PDF Processing**: PyMuPDF + PyPDF2
-- **Deployment**: Docker + Docker Compose
+### Backend
+- **FastAPI** - High-performance Python web framework
+- **FAISS** - Efficient similarity search and clustering
+- **OpenRouter API** - Access to multiple AI models
+- **PyMuPDF & PyPDF2** - PDF processing and text extraction
 
-## ⚡ Quick Start
+### Frontend
+- **React** - Modern UI library with hooks
+- **Tailwind CSS** - Utility-first CSS framework
+- **Vite** - Fast build tool and development server
+
+### AI & Processing
+- **RAG (Retrieval-Augmented Generation)** - Advanced AI architecture
+- **Vector Embeddings** - Semantic search capabilities
+- **Text Chunking** - Intelligent document segmentation
+
+## ⚙️ Quick Start
 
 ### Prerequisites
-- Docker and Docker Compose installed
-- OpenRouter API key (free at [openrouter.ai](https://openrouter.ai/))
+- **Python 3.8+**
+- **Node.js 16+** (for frontend)
+- **OpenRouter API Key** ([Get one free](https://openrouter.ai/))
 
-### 1. Clone and Setup
+### 1. Install Dependencies
 ```bash
-git clone <repository-url>
-cd ResearchRAG
-cp .env.example .env
-# Edit .env and add your OpenRouter API key
+# Backend dependencies
+pip install fastapi uvicorn python-multipart PyMuPDF PyPDF2 faiss-cpu numpy openai requests python-dotenv pydantic aiofiles reportlab markdown
+
+# Frontend dependencies (optional)
+cd frontend && npm install
 ```
 
-### 2. Start the Application
-
-**Linux/Mac:**
-```bash
-chmod +x start.sh
-./start.sh
+### 2. Configure Environment
+Create `.env` file in the root directory:
+```env
+OPENROUTER_API_KEY=your_openrouter_api_key_here
 ```
 
-**Windows:**
+### 3. Run the Application
 ```bash
-start.bat
+# Start backend server
+python run.py
+
+# Start frontend (in another terminal)
+cd frontend && npm run dev
 ```
 
-**Manual Docker:**
-```bash
-export OPENROUTER_API_KEY=your_api_key_here
-docker-compose up --build
-```
-
-### 3. Access the Application
-- **Frontend**: http://localhost:3000
+### 4. Access the Application
+- **Frontend UI**: http://localhost:5173
 - **Backend API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
-
-## 📁 Project Structure
-
-```
-researchrag/
-├── backend/                 # FastAPI backend
-│   ├── app.py              # Main FastAPI application
-│   ├── rag_pipeline.py     # RAG implementation with FAISS
-│   ├── summarizer.py       # AI summarization logic
-│   ├── requirements.txt    # Python dependencies
-│   ├── Dockerfile         # Backend container
-│   └── utils/             # Utility modules
-│       ├── pdf_processor.py    # PDF text extraction
-│       ├── url_processor.py    # URL/arXiv processing
-│       └── exporters.py        # PDF/Markdown export
-├── frontend/               # Next.js frontend
-│   ├── pages/             # Next.js pages
-│   ├── components/        # React components
-│   ├── lib/              # API client
-│   ├── styles/           # Tailwind CSS
-│   ├── package.json      # Node dependencies
-│   └── Dockerfile        # Frontend container
-├── docker-compose.yml     # Container orchestration
-├── .env.example          # Environment template
-└── README.md            # This file
-```
-
-## 🔧 Development
-
-### Backend Development
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app:app --reload --host 0.0.0.0 --port 8000
-```
-
-### Frontend Development
-```bash
-cd frontend
-npm install
-npm run dev
-```
+- **API Documentation**: http://localhost:8000/docs
 
 ## 📡 API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/` | Health check |
-| `POST` | `/upload-paper` | Upload PDF file or URL |
-| `GET` | `/summary/{paper_id}` | Get paper analysis |
-| `POST` | `/chat/{paper_id}` | Chat with paper |
-| `GET` | `/export/{paper_id}/{format}` | Export summary (pdf/markdown) |
+| `POST` | `/upload-paper` | Upload PDF file or provide URL |
+| `GET` | `/summary/{paper_id}` | Get comprehensive paper analysis |
+| `POST` | `/chat/{paper_id}` | Interactive chat with paper content |
+| `GET` | `/export/{paper_id}/{format}` | Export summary (PDF/Markdown) |
 
-## 🔑 Environment Variables
+## 📖 Usage Guide
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `OPENROUTER_API_KEY` | Your OpenRouter API key | ✅ Yes |
+### 1. Upload Research Papers
+- **File Upload**: Drag and drop PDF files or click to browse
+- **URL Input**: Provide arXiv URLs for automatic retrieval
+- **Supported Formats**: PDF files up to 50MB
 
-## 🎯 Usage Examples
+### 2. Get AI Analysis
+- **Summary**: Comprehensive overview of the research
+- **Strengths**: Key contributions and advantages
+- **Weaknesses**: Limitations and areas for improvement
+- **Future Work**: Suggested research directions
 
-### 1. Upload a PDF
-- Go to http://localhost:3000
-- Drag and drop a PDF file or click to select
-- Wait for AI analysis to complete
-- View summary, pros/cons, and future work
+### 3. Interactive Chat
+- Ask specific questions about methodology
+- Request clarifications on complex concepts
+- Explore related research areas
+- Get detailed explanations of findings
 
-### 2. Process arXiv Paper
-- Click "Paper URL" tab
-- Enter: `https://arxiv.org/abs/2301.00001`
-- Click "Analyze Paper"
-- Interact with the results
+### 4. Export Results
+- **PDF Export**: Professional formatted reports
+- **Markdown Export**: Easy-to-edit text format
+- **Share**: Copy links to share analyses
 
-### 3. Chat with Paper
-- After uploading, click the "Chat" tab
-- Ask questions like:
-  - "What is the main contribution?"
-  - "What are the limitations?"
-  - "How does this compare to previous work?"
+## 🔧 Example API Usage
 
-## 🚨 Troubleshooting
+```bash
+# Upload a research paper
+curl -X POST "http://localhost:8000/upload-paper" \
+  -F "file=@research_paper.pdf"
 
-### Common Issues
+# Get analysis summary
+curl "http://localhost:8000/summary/{paper_id}"
 
-**1. "OPENROUTER_API_KEY not set"**
-- Copy `.env.example` to `.env`
-- Add your API key from [openrouter.ai](https://openrouter.ai/)
+# Chat with the paper
+curl -X POST "http://localhost:8000/chat/{paper_id}" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What is the main contribution of this research?"}'
 
-**2. Docker build fails**
-- Ensure Docker is running
-- Try: `docker-compose down && docker-compose up --build`
-
-**3. PDF upload fails**
-- Check file size (max 50MB)
-- Ensure PDF is not password-protected
-- Try a different PDF file
-
-**4. Frontend can't connect to backend**
-- Ensure both containers are running
-- Check `docker-compose logs backend`
-- Verify ports 3000 and 8000 are available
-
-## 🧪 Testing
-
-The application includes comprehensive error handling and validation:
-
-- **File validation**: PDF format and size checks
-- **URL validation**: Supports arXiv and direct PDF URLs
-- **API error handling**: Graceful degradation on AI service issues
-- **Health checks**: Docker container monitoring
-
-## 🔒 Security Notes
-
-- API keys are handled securely through environment variables
-- File uploads are validated and stored safely
-- No sensitive data is logged
-- CORS is properly configured
-
-## 📄 License
-
-This project is open source and available under the MIT License.
+# Export summary as PDF
+curl "http://localhost:8000/export/{paper_id}/pdf" \
+  --output summary.pdf
+```
 
 ## 🤝 Contributing
 
+We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 🆘 Support
+## 📄 License
 
-For issues and questions:
-1. Check the troubleshooting section above
-2. Review Docker logs: `docker-compose logs`
-3. Open an issue on GitHub
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔗 Links
+
+- **OpenRouter API**: [Get your free API key](https://openrouter.ai/)
+- **Documentation**: [API Docs](http://localhost:8000/docs) (when running locally)
+- **Issues**: [Report bugs or request features](https://github.com/your-username/ResearchRAG/issues)
 
 ---
 
-**Built with ❤️ using free AI models and open-source technologies**
+<div align="center">
+  <p>⭐ Star this repo if you find it helpful!</p>
+</div>
