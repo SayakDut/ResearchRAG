@@ -29,22 +29,27 @@
 ### 🏠 Home Page - Clean Interface
 The main landing page offers multiple ways to upload research papers with an intuitive, modern design.
 
-![Home Page](./screenshots/home-page.png)
+![Home Page](./screenshots/5.png)
 
 ### 🔗 URL Input - arXiv Integration
 Seamlessly input arXiv URLs for automatic paper retrieval and processing.
 
-![URL Input Interface](./screenshots/url-input.png)
+![URL Input Interface](./screenshots/4.png)
 
 ### 🧠 AI Analysis - Comprehensive Insights
 Get detailed analysis including summaries, strengths, weaknesses, and future research directions.
 
-![AI Analysis Results](./screenshots/analysis-results.png)
+![AI Analysis Results](./screenshots/2.png)
 
 ### 💬 Interactive Chat - Deep Conversations
 Chat with your research papers to explore concepts, ask questions, and gain deeper insights.
 
-![Chat Interface](./screenshots/chat-interface.png)
+![Chat Interface](./screenshots/3.png)
+
+### 📊 Additional Features
+Advanced functionality and detailed paper analysis capabilities.
+
+![Additional Features](./screenshots/1.png)
 
 ## 🛠️ Tech Stack
 
