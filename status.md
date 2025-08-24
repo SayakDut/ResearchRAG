@@ -31,7 +31,7 @@
 pip install fastapi uvicorn python-multipart PyMuPDF PyPDF2 faiss-cpu numpy openai requests python-dotenv pydantic aiofiles reportlab markdown
 
 # 2. Set API key in .env (already done)
-OPENROUTER_API_KEY=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
+OPENROUTER_API_KEY=your_openrouter_api_key_here
 
 # 3. Run the backend
 python run.py
